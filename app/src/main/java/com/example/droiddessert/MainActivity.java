@@ -1,9 +1,9 @@
 package com.example.droiddessert;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,22 +17,16 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private String chosenItem;
-    private ActivityMainBinding binding;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        com.example.droiddessert.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showFoodOrder(chosenItem);
-            }
-        });
+        binding.fab.setOnClickListener(view -> showFoodOrder(chosenItem));
     }
 
     @Override
@@ -40,6 +34,18 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem favoriteItem = menu.findItem(R.id.favorites);
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            favoriteItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        }
+        else{
+            favoriteItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        }
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
@@ -59,14 +65,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void showDonutOrder(View view) {
+        displayToast(getString(R.string.donut_order_message));
         chosenItem = getString(R.string.donut_order_message);
     }
 
     public void showIceCreamOrder(View view) {
+        displayToast(getString(R.string.ice_cream_order_message));
         chosenItem = getString(R.string.ice_cream_order_message);
     }
 
     public void showFroyoOrder(View view) {
+        displayToast(getString(R.string.froyo_order_message));
         chosenItem = getString(R.string.froyo_order_message);
     }
     public void displayToast(String message){
@@ -78,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("chosen item",message);
             startActivity(intent);
         }
+        else{
+            displayToast(getString(R.string.no_order_message));
+        }
+
 
     }
 }

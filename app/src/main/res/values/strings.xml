@@ -32,4 +32,5 @@
     <string name="enter_phone">Enter phone</string>
     <string name="note">Note:</string>
     <string name="enter_note">Enter note</string>
+    <string name="no_order_message">Please, select a item before</string>
 </resources>

@@ -16,8 +16,7 @@
         android:id="@+id/favorites"
         android:icon="@drawable/baseline_favorite_24"
         android:title="@string/favorites"
-        android:visible="@bool/show_favorite_icon"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
     <item
         android:id="@+id/contact_us"
         android:title="@string/contact_us"
