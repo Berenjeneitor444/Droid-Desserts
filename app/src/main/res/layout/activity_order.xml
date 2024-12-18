@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OrderActivity">
+    tools:context=".OrderActivity"
+    android:padding="20dp">
 
     <TextView
         android:id="@+id/order_name"
@@ -14,13 +14,92 @@
         android:layout_marginTop="@dimen/text_margin_top"
         android:layout_marginBottom="@dimen/text_margin_bottom"
         android:textSize="@dimen/intro_text_size"/>
+
+    <TextView
+        android:id="@+id/name_label"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/order_name"
+        android:text="@string/name"
+        android:textSize="@dimen/label_text_size"
+        android:gravity="center_vertical"/>
+
+    <EditText
+        android:id="@+id/name_input"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/order_name"
+        android:layout_toEndOf="@id/name_label"
+        android:autofillHints="true"
+        android:hint="@string/enter_your_name"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/address_label"
+        android:layout_width="80dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/name_input"
+        android:text="@string/address"
+        android:textSize="@dimen/label_text_size"
+        android:gravity="center_vertical"/>
+
+    <EditText
+        android:id="@+id/address_input"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_input"
+        android:layout_toEndOf="@id/address_label"
+        android:autofillHints="true"
+        android:hint="@string/enter_address"
+        android:inputType="textPostalAddress" />
+
+    <TextView
+        android:id="@+id/phone_label"
+        android:layout_width="80dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/address_input"
+        android:text="@string/phone"
+        android:textSize="@dimen/label_text_size"
+        android:gravity="center_vertical"/>
+
+    <EditText
+        android:id="@+id/phone_input"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/address_input"
+        android:layout_toEndOf="@id/phone_label"
+        android:autofillHints="true"
+        android:hint="@string/enter_phone"
+        android:inputType="phone" />
+
+    <TextView
+        android:id="@+id/note_label"
+        android:layout_width="80dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/phone_input"
+        android:text="@string/note"
+        android:textSize="@dimen/label_text_size"
+        android:gravity="center_vertical"/>
+
+    <EditText
+        android:id="@+id/note_input"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phone_input"
+        android:layout_toEndOf="@id/note_label"
+        android:autofillHints="true"
+        android:hint="@string/enter_note"
+        android:inputType="textMultiLine"
+        android:maxLines="3"
+        android:minLines="1" />
+
     <TextView
         android:id="@+id/order_intro_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/text_margin_top"
         android:layout_marginBottom="@dimen/text_margin_bottom"
-        android:layout_below="@id/order_name"
+        android:layout_below="@id/note_input"
         android:text="@string/choose_a_delivery_method"
         android:textSize="@dimen/intro_text_size"/>
     <RadioGroup

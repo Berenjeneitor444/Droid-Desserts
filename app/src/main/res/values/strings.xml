@@ -24,4 +24,12 @@
     <string name="status">Status</string>
     <string name="favorites">Favorites</string>
     <string name="contact_us">Contact</string>
+    <string name="name">Name</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="address">Address</string>
+    <string name="enter_address">Enter address</string>
+    <string name="phone">Phone</string>
+    <string name="enter_phone">Enter phone</string>
+    <string name="note">Note:</string>
+    <string name="enter_note">Enter note</string>
 </resources>
