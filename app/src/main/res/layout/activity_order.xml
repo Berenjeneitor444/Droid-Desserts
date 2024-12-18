@@ -24,6 +24,7 @@
         android:textSize="@dimen/label_text_size"
         android:gravity="center_vertical"/>
 
+
     <EditText
         android:id="@+id/name_input"
         android:layout_width="250dp"
